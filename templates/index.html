@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home page</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename= 'style.css'  )}}"
+	</head>
+	<body>
+		<h1>
+			Welcom to the homepage {{first_name}}
+			</h1>
+			<p>number of visists:{{ session["NUMBER_OF_VISITS"] }}</p>
+			<div>
+				<ul>
+					{% for element in list_todos: %}
+						<li>
+							{{ element["todo"] }} - {{ element["status"] }}
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</p>
+		<!-- you need to link  the form that you want to display in this case is th /todo/new  and you should only put the URL no the method    route 
+		the words adde are just a descriptin -->
+		<a href="/todo/new">Add a new todo</a>
+	</body>
+</html>

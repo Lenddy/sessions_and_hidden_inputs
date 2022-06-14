@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Todo Form</title>
+		<link rel="stylesheet" type="text/css" href="{{
+		url_for('static',filename= 'style.css' )}}"
+	</head>
+	<body>
+		<p>number of visists:{{ session["NUMBER_OF_VISITS"] }}</p>
+		<!-- we need to create form and the form is a collection of user input -->
+		<!-- the action is the url the page that we want to use -->
+		<!-- the method is the method that we want to use GET, POST, PUT, DELETE -->
+		<form action="/todo/new" method="POST">
+			<div>
+				<!-- The <label> tag defines a label for several elements: -->
+				<label for="todo"> new todo: </label>
+				<!-- input information  -->
+				<input type="text" id="todo" name=" todo" />
+			</div>
+			<div>
+				<label for="status"> status: </label>
+				<!-- select create a drop-down list with four options: -->
+				<!-- value is == to the name  of the thing that we want to diaplay 
+                in this case i have it as the status of the dictionary on the python file -->
+				<select name="status" id="status">
+					<!-- the ids and the values that we put here needs to mach the ones that we have in the server.py -->
+					<option value="Compleate">Complete</option>
+					<option value="In_progres">In progres:</option>
+					<option value="Cancell">Cancell:</option>
+				</select>
+			</div>
+			<div>
+				<input type="hidden" value="123" id="hidden_id" name="hidden_id">
+			</div>
+			<div>
+				<!-- type is for the type of  format tha we want to use
+                button	The button is a clickable button
+submit	The button is a submit button (submits form-data)
+reset	The button is a reset button (resets the form-data to its initial values) -->
+				<button type="submit">Create</button>
+			</div>
+		</form>
+	</body>
+</html>
